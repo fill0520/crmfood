@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import MaxValueValidator
 # Create your models here.
 
 class Table(models.Model):
@@ -29,7 +29,7 @@ class Status(models.Model):
 		return self.name
 
 class Service(models.Model):
-	percentage = models.IntegerField(max_length=50)
+	percentage = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(9999999999)])
 	def __str__(self):
 		return self.percentage
 
@@ -49,6 +49,6 @@ class Meal(models.Model):
 	categoryid = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='users')
 	name = models.CharField(max_length=200)
 	description = models.CharField(max_length=200)
-	price = models.IntegerField(max_length=50)
+	price = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(9999999999)])
 	def __str__(self):
 		return self.name
