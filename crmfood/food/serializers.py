@@ -50,3 +50,4 @@ class MealSerializer(serializers.HyperlinkedModelSerializer):
 		model = Meal
 		fields = ('id', 'name', 'categoryid', 'price', 'description')
 	
+

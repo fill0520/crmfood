@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
+
 # Create your models here.
 
 class Table(models.Model):
@@ -52,3 +53,4 @@ class Meal(models.Model):
 	price = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(9999999999)])
 	def __str__(self):
 		return self.name
+

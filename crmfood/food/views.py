@@ -2,6 +2,9 @@ from rest_framework import generics
 from .serializers import *
 from .models import *
 from rest_framework import viewsets
+from django.urls import reverse_lazy
+from django.views import generic
+
 
 class TableViewSet(viewsets.ModelViewSet):
     queryset = Table.objects.all()
